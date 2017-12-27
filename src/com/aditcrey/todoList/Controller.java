@@ -4,6 +4,7 @@ import com.aditcrey.todoList.datamodel.ToDoItem;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
+import javafx.scene.control.TextArea;
 
 import java.time.LocalDate;
 import java.time.Month;
@@ -13,7 +14,9 @@ import java.util.List;
 public class Controller {
     private List<ToDoItem> toDoItems;
     @FXML
-    private ListView todoListView;
+    private ListView<ToDoItem> todoListView;
+    @FXML
+    private TextArea itemDetailTextArea;
 
     public void initialize(){
         ToDoItem item1 = new ToDoItem("Mail birthdaycard", "Buy a birthday card for John", LocalDate.of(2016, Month.APRIL, 25));
@@ -33,6 +36,18 @@ public class Controller {
         //now we can set the listview to single select or multi select i.e. the user is able to select only a single item or multiple items from the listView...here
         //we'll do the single select as follows
         todoListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+
+
+    }
+
+
+    //SelectionModel class handles which control is selected in the UI
+    @FXML
+    public void handleClickListView(){
+//        ToDoItem item = (ToDoItem) todoListView.getSelectionModel().getSelectedItem(); //we need to cast here since we didn't specify type parameter in the ListView
+        ToDoItem item = todoListView.getSelectionModel().getSelectedItem();  //after specifying the type parameter in the listView
+//        System.out.println("The selected item is " + item);
+        itemDetailTextArea.setText(item.getDetails());
 
 
     }
