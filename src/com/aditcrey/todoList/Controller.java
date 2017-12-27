@@ -62,3 +62,8 @@ public class Controller {
     }
 
 }
+
+/**
+ * now if we want to bold the text then we will have to put it outside the text area since text area only understands plain text so what we can do
+ * is instead of the big text area, add a VBox and then inside that add a text area and a hbox
+ */
