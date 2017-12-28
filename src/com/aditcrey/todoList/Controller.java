@@ -1,6 +1,8 @@
 package com.aditcrey.todoList;
 
 import com.aditcrey.todoList.datamodel.ToDoItem;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -34,6 +36,24 @@ public class Controller {
         toDoItems.add(item3);
         toDoItems.add(item4);
         toDoItems.add(item5);
+
+
+        /**
+         * the following code creates a generic event handler which handles any time the value changes
+         * matlab ki mouseClick ke alawa agar kisi aur tarike se bhi listItem select hota h to listener work karega...this was necessary since we were selecting the
+         * first item in the listView when the application starts and the earlier event handler handled only when the item was selected onmouseClick which doesn't happen
+         * when the application starts
+         */
+        todoListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<ToDoItem>() {
+            @Override
+            public void changed(ObservableValue<? extends ToDoItem> observable, ToDoItem oldValue, ToDoItem newValue) {
+                if(newValue!=null){
+                    ToDoItem item = todoListView.getSelectionModel().getSelectedItem();
+                    itemDetailTextArea.setText(item.getDetails());
+                }
+            }
+        });
+
 
         todoListView.getItems().setAll(toDoItems);
         //now we can set the listview to single select or multi select i.e. the user is able to select only a single item or multiple items from the listView...here
