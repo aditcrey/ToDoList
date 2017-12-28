@@ -15,7 +15,7 @@
     </left>
     <center>
         <VBox>
-            <TextArea fx:id="itemDetailTextArea"/>
+            <TextArea fx:id="itemDetailTextArea" VBox.vgrow="ALWAYS"/> <!--VBox.vgrow tells the VBox to give as much area as possible to the textArea after giving preferred heights to other children-->
             <HBox>
                 <Label text = "Due: ">
                     <font>
