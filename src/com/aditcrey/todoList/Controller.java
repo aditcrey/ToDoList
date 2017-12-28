@@ -49,15 +49,20 @@ public class Controller {
     public void handleClickListView(){
 //        ToDoItem item = (ToDoItem) todoListView.getSelectionModel().getSelectedItem(); //we need to cast here since we didn't specify type parameter in the ListView
         ToDoItem item = todoListView.getSelectionModel().getSelectedItem();  //after specifying the type parameter in the listView
-//        System.out.println("The selected item is " + item);
-        /**
-         * using String builder
-         */
-        StringBuilder sb = new StringBuilder(item.getDetails());
-        sb.append("\n\n\n\n");
-        sb.append("Due: ");
-        sb.append(item.getDeadline().toString());
-        itemDetailTextArea.setText(sb.toString());
+
+        itemDetailTextArea.setText(item.getDetails());
+        deadlineLabel.setText(item.getDeadline().toString());
+
+
+////        System.out.println("The selected item is " + item);
+//        /**
+//         * using String builder
+//         */
+//        StringBuilder sb = new StringBuilder(item.getDetails());
+//        sb.append("\n\n\n\n");
+//        sb.append("Due: ");
+//        sb.append(item.getDeadline().toString());
+//        itemDetailTextArea.setText(sb.toString());
 
 //        itemDetailTextArea.setText(item.getDetails()); //earlier without string builder
 
