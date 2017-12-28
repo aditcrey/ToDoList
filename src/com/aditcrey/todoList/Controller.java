@@ -40,6 +40,9 @@ public class Controller {
         //we'll do the single select as follows
         todoListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 
+        //now just making the text area display the first item in the listview(otherwise the text area will remain blank initially)
+        todoListView.getSelectionModel().selectFirst();
+
 
     }
 

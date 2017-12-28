@@ -14,15 +14,15 @@
         </ListView>
     </left>
     <center>
-        <VBox>
+        <VBox style="-fx-background-color: white">
             <TextArea fx:id="itemDetailTextArea" VBox.vgrow="ALWAYS"/> <!--VBox.vgrow tells the VBox to give as much area as possible to the textArea after giving preferred heights to other children-->
             <HBox>
-                <Label text = "Due: ">
+                <Label text = "Due: " style="-fx-background-color: white">
                     <font>
                         <Font name="Time New Roman bold" size="20"/>
                     </font>
                 </Label>
-                <Label fx:id="deadlineLabel">
+                <Label fx:id="deadlineLabel">  <!--setting background color white here will display white only when the date is being displayed and not otherwise so instead we change the background color of the VBox itself-->
                     <font>
                         <Font name="Times New Roman bold" size="20"/>
                     </font>
