@@ -2,6 +2,7 @@ package com.aditcrey.todoList;
 
 import com.aditcrey.todoList.datamodel.ToDoItem;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextArea;
@@ -17,6 +18,8 @@ public class Controller {
     private ListView<ToDoItem> todoListView;
     @FXML
     private TextArea itemDetailTextArea;
+    @FXML
+    private Label deadlineLabel;
 
     public void initialize(){
         ToDoItem item1 = new ToDoItem("Mail birthdaycard", "Buy a birthday card for John", LocalDate.of(2016, Month.APRIL, 25));
