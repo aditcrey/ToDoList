@@ -102,4 +102,14 @@ public class Controller {
 /**
  * now if we want to bold the text then we will have to put it outside the text area since text area only understands plain text so what we can do
  * is instead of the big text area, add a VBox and then inside that add a text area and a hbox
+ *
+ *
+ * Now, the user would also need to be able to add items and the items should not get deleted after closing the application and should reappear on reopening the application
+ * We need to override the stop method (of Application Class) which our Main class extends from to store the items in the listView...however the controller will need the data to
+ * populate the listView and it already has access to listView's contents when we want to store them  so for experience sake and because we are doing this quick and dirty way so that
+ * we can get back to UI coding what we'll do is we'll add a singleton class that both our main class and the controller class can access...in an nutshell, we will use a singleton
+ * that we want to be there only one instance of class created over the entire run of the application...because of this the singleton class creates the one instance of itself
+ *
+ *A singleton class has a private constructor to ensure that no other class can create an instance...Usually a singleton class contains a static method that allows us to get the single
+ * instance and call its methods
  */
