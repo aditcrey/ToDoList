@@ -51,9 +51,10 @@ public class Controller {
                 if(newValue!=null){
                     ToDoItem item = todoListView.getSelectionModel().getSelectedItem();
                     itemDetailTextArea.setText(item.getDetails());
-                    //adding a date time formatter so that the date is easy to read
+                    //adding a date time formatter so that the date is easy to read //oracle document link: https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html
                     DateTimeFormatter df = DateTimeFormatter.ofPattern("MMMM d, yyyy");
                     deadlineLabel.setText(df.format(item.getDeadline()));
+//                    deadlineLabel.setText(item.getDeadline().toString()); //earlier (before adding date formatter)
                 }
             }
         });
