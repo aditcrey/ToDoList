@@ -50,6 +50,7 @@ public class Controller {
                 if(newValue!=null){
                     ToDoItem item = todoListView.getSelectionModel().getSelectedItem();
                     itemDetailTextArea.setText(item.getDetails());
+                    deadlineLabel.setText(item.getDeadline().toString());
                 }
             }
         });
