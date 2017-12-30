@@ -5,7 +5,7 @@ import javafx.collections.FXCollections;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
-import java.nio.file.Files;
+import java.nio.file.Files;  //info about nio : https://docs.oracle.com/javase/7/docs/api/java/nio/package-summary.html
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
@@ -43,7 +43,8 @@ public class TodoData {
     public void loadTodoItems() throws IOException{
         //we will buildup an arrayList of items
 
-        toDoItems = FXCollections.observableArrayList();
+        toDoItems = FXCollections.observableArrayList(); //we are using an observableArrayList here because in the Controller class we've used setAll
+        //method which is an ObservableArrayList method
         Path path = Paths.get(filename);  //specifying path to the file
         BufferedReader br = Files.newBufferedReader(path);
 
