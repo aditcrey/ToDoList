@@ -26,22 +26,24 @@ public class Controller {
     private Label deadlineLabel;
 
     public void initialize(){
-        ToDoItem item1 = new ToDoItem("Mail birthdaycard", "Buy a birthday card for John", LocalDate.of(2016, Month.APRIL, 25));
-        ToDoItem item2 = new ToDoItem("Doctor's appointment", "See doctor smith at 123, main street, pink pepperwood", LocalDate.of(2016, Month.MAY, 23));
-        ToDoItem item3 = new ToDoItem("Finish design proposal for client", "I promised Mike I'd email website mockups by Friday 22nd April", LocalDate.of(2016, Month.APRIL, 22));
-        ToDoItem item4 = new ToDoItem("Pickup Doug at the train station", "Doug's arriving on March 23 on the 5:00 train", LocalDate.of(2016, Month.MARCH, 23));
-        ToDoItem item5 = new ToDoItem("Pick up dry cleaning", "The clothes should be ready by wednesday", LocalDate.of(2016, Month.APRIL, 20));
-
-        toDoItems = new ArrayList<>();
-        toDoItems.add(item1);
-        toDoItems.add(item2);
-        toDoItems.add(item3);
-        toDoItems.add(item4);
-        toDoItems.add(item5);
 
 
-        TodoData.getInstance().setToDoItems(toDoItems); //this will create the file to be stored in for us
-
+//        ToDoItem item1 = new ToDoItem("Mail birthdaycard", "Buy a birthday card for John", LocalDate.of(2016, Month.APRIL, 25));
+//        ToDoItem item2 = new ToDoItem("Doctor's appointment", "See doctor smith at 123, main street, pink pepperwood", LocalDate.of(2016, Month.MAY, 23));
+//        ToDoItem item3 = new ToDoItem("Finish design proposal for client", "I promised Mike I'd email website mockups by Friday 22nd April", LocalDate.of(2016, Month.APRIL, 22));
+//        ToDoItem item4 = new ToDoItem("Pickup Doug at the train station", "Doug's arriving on March 23 on the 5:00 train", LocalDate.of(2016, Month.MARCH, 23));
+//        ToDoItem item5 = new ToDoItem("Pick up dry cleaning", "The clothes should be ready by wednesday", LocalDate.of(2016, Month.APRIL, 20));
+//
+//        toDoItems = new ArrayList<>();
+//        toDoItems.add(item1);
+//        toDoItems.add(item2);
+//        toDoItems.add(item3);
+//        toDoItems.add(item4);
+//        toDoItems.add(item5);
+//
+//
+//        TodoData.getInstance().setToDoItems(toDoItems); //this will create the file to be stored in for us //this will be later replaced by loading the items from the file instead of hardcoding
+            //the above line was run only once to store the hardcoded items in a file for once...for all later uses, the items will be loaded from the file itself and no hardcoding will be needed
 
         /**
          * the following code creates a generic event handler which handles any time the value changes
@@ -64,7 +66,8 @@ public class Controller {
         });
 
 
-        todoListView.getItems().setAll(toDoItems);
+//        todoListView.getItems().setAll(toDoItems);
+        todoListView.getItems().setAll(TodoData.getInstance().getToDoItems());
         //now we can set the listview to single select or multi select i.e. the user is able to select only a single item or multiple items from the listView...here
         //we'll do the single select as follows
         todoListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
