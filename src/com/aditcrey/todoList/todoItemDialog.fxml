@@ -1,0 +1,17 @@
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.DialogPane?>
+<DialogPane fx:controller="com.aditcrey.todoList.DialogController"
+            xmlns:fx="http://javafx.com/fxml">
+    <headerText>
+        We could put instructions here
+    </headerText>
+
+</DialogPane>
+
+<!--every dialog is wrapped in dialogPane-->
+<!--DialogPane is the layoutManager which allow us to set 4 properties namely: header, grphic, content and
+buttons...each property expects a control...we also have properties like header-text and content-text for
+diplaying text in the header and the content area...it saves us from creating any label
+Note: if both text and non-text properties are set then non-text property will take precedence
+more info on dialog pane : https://docs.oracle.com/javase/8/javafx/api/javafx/scene/control/DialogPane.html-->
+<!--Dialog pane is supported after java8u40-->

@@ -17,7 +17,7 @@
             <Menu text="File">
                 <items>
                     <MenuItem text="New..."/>
-                    <!--<SeparatorMenuItem/>  &lt;!&ndash;this adds a separator&ndash;&gt;-->
+                    <SeparatorMenuItem/>  <!--this adds a separator-->
                     <MenuItem text="Exit"/>
 
                 </items>
