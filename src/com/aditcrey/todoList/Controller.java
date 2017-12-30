@@ -67,7 +67,7 @@ public class Controller {
 
 
 //        todoListView.getItems().setAll(toDoItems);
-        todoListView.getItems().setAll(TodoData.getInstance().getToDoItems());
+        todoListView.getItems().setAll(TodoData.getInstance().getToDoItems()); //this will read from the file
         //now we can set the listview to single select or multi select i.e. the user is able to select only a single item or multiple items from the listView...here
         //we'll do the single select as follows
         todoListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
