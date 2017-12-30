@@ -5,11 +5,12 @@ import com.aditcrey.todoList.datamodel.TodoData;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.control.TextArea;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.control.*;
+import javafx.scene.layout.BorderPane;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.format.DateTimeFormatter;
@@ -24,6 +25,9 @@ public class Controller {
     private TextArea itemDetailTextArea;
     @FXML
     private Label deadlineLabel;
+    @FXML
+    private BorderPane mainBorderPane;
+
 
     public void initialize(){
 
@@ -78,6 +82,40 @@ public class Controller {
 
     }
 
+    @FXML
+    public void showNewItemDialog(){
+        Dialog<ButtonType> dialog = new Dialog<>();
+        //now we want this dialog to be modul...meaning while the dialog is visible, the user's
+        //won't be able to interact with any other part of the application's UI
+        //note: dialog is modul by default so we don't need to do anything right now
+
+        //since we have set an id to the borderpane of mainwindow.fxml, we can refer to its parent and we can do it by calling getScene()
+        // method which will return the scene from the borderPane and then we'll call the scene's getwindow method and set it as the owner of the dialog
+        dialog.initOwner(mainBorderPane.getScene().getWindow()); //setting the owner for the dialog
+
+
+        //note the main class loads the mainwindow fxml and now we created an instance of dialog class
+        //but that doesn't load the UI we defined its fxml and so we have to load the fxml here and we are going to do it the same way we do in the main class...
+        //once we've done that, we gotta set the dialog's dialogpane to the dialogpane we defined in the fxml
+
+        try{ //we are adding a try block here since the load method can throw an IO exceoption
+            Parent root = FXMLLoader.load(getClass().getResource("todoItemDialog.fxml"));
+            dialog.getDialogPane().setContent(root);
+
+        }catch(IOException e){
+            System.out.println("Couldn't load the dialog");
+            e.printStackTrace();
+            return;
+        }
+
+
+    }
+
+
+
+
+
+
 
     //SelectionModel class handles which control is selected in the UI
     @FXML
@@ -119,4 +157,15 @@ public class Controller {
  *
  *A singleton class has a private constructor to ensure that no other class can create an instance...Usually a singleton class contains a static method that allows us to get the single
  * instance and call its methods
+ *
+ *
+ *
+ * for setting the dialog pane:
+ *      we need to assign an ID to the borderpane in the mainwindow.fxml so that we can access it
+ *      Now, it's a good practice to set the dialog's owner parent which is usually the window the dialog
+ *      was open from...we could set the owner to null and the JavaFX runtime would still block input
+ *      to other parts of the application
+ *      When we set the owner, the owner has to of type window
+ *      This is the reason we are assigning id to BorderPane so that we can access the parent window instance
+ *
  */
