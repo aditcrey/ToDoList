@@ -29,6 +29,10 @@ public class TodoData {
         return instance;
     }
 
+    public void setToDoItems(List<ToDoItem> toDoItems) {
+        this.toDoItems = toDoItems;
+    }
+
     private TodoData(){
         formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
     }

@@ -1,6 +1,7 @@
 package com.aditcrey.todoList;
 
 import com.aditcrey.todoList.datamodel.ToDoItem;
+import com.aditcrey.todoList.datamodel.TodoData;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -37,6 +38,9 @@ public class Controller {
         toDoItems.add(item3);
         toDoItems.add(item4);
         toDoItems.add(item5);
+
+
+        TodoData.getInstance().setToDoItems(toDoItems); //this will create the file to be stored in for us
 
 
         /**

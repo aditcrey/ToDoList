@@ -20,6 +20,8 @@ public class ToDoItem {
         return shortDescription;
     }
 
+
+
     public void setShortDescription(String shortDescription) {
         this.shortDescription = shortDescription;
     }
