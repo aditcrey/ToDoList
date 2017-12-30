@@ -16,6 +16,7 @@ import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class Controller {
     private List<ToDoItem> toDoItems;
@@ -108,6 +109,19 @@ public class Controller {
             return;
         }
 
+
+        //Dialog class provides method to add buttons...we can use custom buttons but here we're gonna use OK and cancel button only
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
+
+
+        Optional<ButtonType> result = dialog.showAndWait(); //simple a show() method disappears on its own whereas show and Wait() method waits for the user itput(via the buttons) and suspends the event handler till the user presses any button(blocking dialog)...the former one is non-blocking dialog
+
+        if(result.isPresent() && result.get() == ButtonType.OK){
+            System.out.println("OK pressed");
+        }else{
+            System.out.println("Cancel pressed");
+        }
 
     }
 

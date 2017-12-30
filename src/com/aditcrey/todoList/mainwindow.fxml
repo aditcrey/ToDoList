@@ -16,7 +16,7 @@
         <MenuBar>
             <Menu text="File">
                 <items>
-                    <MenuItem text="New..."/>
+                    <MenuItem text="New..." onAction="#showNewItemDialog"/>
                     <SeparatorMenuItem/>  <!--this adds a separator-->
                     <MenuItem text="Exit"/>
 
