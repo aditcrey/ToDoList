@@ -114,6 +114,7 @@ public class Controller {
         dialog.setHeaderText("Use this dialog to create a new Todo Item"); //this is dialog's header text which has larger font than the headertext specified in the fxml file
 
 
+
         FXMLLoader fxmlLoader = new FXMLLoader();   //new way
         fxmlLoader.setLocation(getClass().getResource("todoItemDialog.fxml")); //new way
 

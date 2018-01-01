@@ -23,7 +23,27 @@ public class TodoData {
     private static TodoData instance = new TodoData();
     private static String filename = "TodoListItems.txt";
 
+
+    /**
+     * why we are using observable list?
+     * packages:
+     * list -> java.util.Collections
+     * observaleList ->javafx.collections
+     *
+     * we do it for performance reasons...observable list will raise events and because methods withing the list classes may
+     * call each other when a list changed, it's impossible for more than 1 event to be raised for a single change...
+     * for eg. if method a, b and c all raise events and when an item is added, method a calls b which calls c then 3 events
+     * will be raised whenever an item is added and UI operations can be expensive and that's because the UI control has to paint
+     * the screen...so we don't want a control like a listView to run its handler multiple times when an item is added or deleted....
+     * ideally what we want is to run its handler once
+     * Now, FXCollections package contains a copy of all the classes and static methods in java.util.collections package but the code has
+     * been optimised to reduce a number of events or notifications raised when collections are changed
+     * All methods are optimised in a way that only yield a limited numbers of notifications on the other hand, java.util.collections might call
+     * modification methods or an observable list multiple times resulting in number of notifications
+     * Documentation: https://docs.oracle.com/javase/8/javafx/api/javafx/collections/FXCollections.html
+     */
     private ObservableList<ToDoItem> toDoItems;
+//    private List<ToDoItem> toDoItems;  //before data binding
     private DateTimeFormatter formatter;
 
     public static TodoData getInstance(){ //public static mehtod to return the instance of this class

@@ -6,16 +6,17 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.DatePicker?>
 <DialogPane fx:controller="com.aditcrey.todoList.DialogController"
-            xmlns:fx="http://javafx.com/fxml">
+            xmlns:fx="http://javafx.com/fxml"
+            style="-fx-background-color : #deb887">
     <headerText>
         We could put instructions here.
     </headerText>
-    <content>
+    <content >
         <GridPane vgap="10" hgap="10">
             <Label text="Short Desciption: " GridPane.rowIndex="0" GridPane.columnIndex="0"/>
             <TextField fx:id="shortDescriptionField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
             <Label text="Details: " GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-            <TextArea fx:id="detailsArea" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+            <TextArea fx:id="detailsArea" GridPane.rowIndex="1" GridPane.columnIndex="1" wrapText="true"/>
             <Label text="Deadline" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
             <DatePicker fx:id="deadlinePicker" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
 

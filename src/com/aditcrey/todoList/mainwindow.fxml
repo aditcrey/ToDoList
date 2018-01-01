@@ -13,7 +13,7 @@
 <BorderPane fx:id="mainBorderPane" fx:controller="com.aditcrey.todoList.Controller"
             xmlns:fx="http://javafx.com/fxml">
     <top>
-        <MenuBar>
+        <MenuBar  style="-fx-background-color: #deb887">
             <Menu text="File">
                 <items>
                     <MenuItem text="New..." onAction="#showNewItemDialog"/>
@@ -31,7 +31,7 @@
     </left>
     <center>
         <VBox style="-fx-background-color: white">
-            <TextArea fx:id="itemDetailTextArea" VBox.vgrow="ALWAYS"/> <!--VBox.vgrow tells the VBox to give as much area as possible to the textArea after giving preferred heights to other children-->
+            <TextArea fx:id="itemDetailTextArea" VBox.vgrow="ALWAYS" wrapText="true"/> <!--VBox.vgrow tells the VBox to give as much area as possible to the textArea after giving preferred heights to other children-->
             <HBox>
                 <Label text = "Due: " style="-fx-background-color: white">
                     <font>
