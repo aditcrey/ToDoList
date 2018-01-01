@@ -226,4 +226,14 @@ public class Controller {
  *  collection by running a handler...so when items are added or deleted from that collection, the control will then change what it's
  *  displaying on screen
  *
+ *
+ *  Cell factory:
+ *  we will make ammendments to our app by adding the feature of listItem changing it's color if it's due on today's date
+ *  Each item in the listView is being displayed in a cell...and we can customize how those cell will look by assigning
+ *  a custom cell factory to the listView...right now(past), it's using the default cell factory and this default cell factory
+ *  sets the text to whatever items toString method returns...also, the background color of the cell alternates between white and
+ *  very light gray
+ *
+ *  For using cell factory, we need to define a method  the the ListView will call each time it wants to paint one of its cells
+ *
  */
