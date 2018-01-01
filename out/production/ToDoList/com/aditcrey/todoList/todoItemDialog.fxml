@@ -8,7 +8,7 @@
 <DialogPane fx:controller="com.aditcrey.todoList.DialogController"
             xmlns:fx="http://javafx.com/fxml">
     <headerText>
-        Enter text in the following textboxes and click OK to add.
+        We could put instructions here.
     </headerText>
     <content>
         <GridPane vgap="10" hgap="10">
