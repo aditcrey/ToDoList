@@ -133,8 +133,9 @@ public class Controller {
 
         if(result.isPresent() && result.get() == ButtonType.OK){
             DialogController controller = fxmlLoader.getController(); //this is how we access the dialog's controller
-            controller.processResults();
+            ToDoItem newItem = controller.processResults(); //since this also returns the new item added
             todoListView.getItems().setAll(TodoData.getInstance().getToDoItems()); //this will reset the listView
+            todoListView.getSelectionModel().select(newItem);  //this selects the new item added
             System.out.println("OK pressed");
         }else{
             System.out.println("Cancel pressed");

@@ -22,12 +22,15 @@ public class DialogController {
     @FXML
     private DatePicker deadlinePicker;
 
-    public void processResults(){ //when OK processed
+    public ToDoItem processResults(){ //when OK processed
         String shortDescription = shortDescriptionField.getText().trim();
         String details = detailsArea.getText().trim();
         LocalDate deadlineValue = deadlinePicker.getValue();
 
-        TodoData.getInstance().addTodoItem(new ToDoItem(shortDescription,details,deadlineValue));
+        ToDoItem newItem = new ToDoItem(shortDescription,details,deadlineValue);
+        TodoData.getInstance().addTodoItem(newItem);
+
+        return newItem;
 
     }
 
