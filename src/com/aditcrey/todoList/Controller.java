@@ -206,4 +206,18 @@ public class Controller {
  *      When we set the owner, the owner has to of type window
  *      This is the reason we are assigning id to BorderPane so that we can access the parent window instance
  *
+ *
+ * Data binding:
+ *  although by now, the app is working, we wanna change the way the listView is populated...till now(past), when we
+ *  add a newItem , what we are doing is we are explicitly updating the listview by repopulating it again...it is inefficient
+ *  and in a more complex application that's got many different ways to change what our controller is displaying, it would
+ *  be really easy for the controller to get out of sync with the data and we don't that to happen
+ *  So, instead of explicitly trying to manage what the listView is displaying, we are going to use what's called databinding...
+ *  when we bind a control to data, the control is gonna notice when the data changes without us having to write any code...
+ *  i.e. the controll will seemingly update itself...
+ *  It works pretty similar to how event handling works
+ *  When the control is populated with what's called an Observable Collection, it's going to react to events raised by that
+ *  collection by running a handler...so when items are added or deleted from that collection, the control will then change what it's
+ *  displaying on screen
+ *
  */
