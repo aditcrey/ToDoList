@@ -1,6 +1,7 @@
 package com.aditcrey.todoList.datamodel;
 
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -22,14 +23,14 @@ public class TodoData {
     private static TodoData instance = new TodoData();
     private static String filename = "TodoListItems.txt";
 
-    private List<ToDoItem> toDoItems;
+    private ObservableList<ToDoItem> toDoItems;
     private DateTimeFormatter formatter;
 
     public static TodoData getInstance(){ //public static mehtod to return the instance of this class
         return instance;
     }
 
-    public void setToDoItems(List<ToDoItem> toDoItems) {
+    public void setToDoItems(ObservableList<ToDoItem> toDoItems) {
         this.toDoItems = toDoItems;
     }
 
@@ -37,7 +38,7 @@ public class TodoData {
         formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
     }
 
-    public List<ToDoItem> getToDoItems() {
+    public ObservableList<ToDoItem> getToDoItems() {
         return toDoItems;
     }
 

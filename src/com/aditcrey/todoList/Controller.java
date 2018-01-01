@@ -76,7 +76,8 @@ public class Controller {
 
 
 //        todoListView.getItems().setAll(toDoItems);
-        todoListView.getItems().setAll(TodoData.getInstance().getToDoItems()); //this will read from the file
+//        todoListView.getItems().setAll(TodoData.getInstance().getToDoItems()); //this will read from the file //before data binding
+        todoListView.setItems(TodoData.getInstance().getToDoItems()); //after making the list-> observable list (in the TodoData.java)
         //now we can set the listview to single select or multi select i.e. the user is able to select only a single item or multiple items from the listView...here
         //we'll do the single select as follows
         todoListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
@@ -88,7 +89,7 @@ public class Controller {
     }
 
     @FXML
-    public void showNewItemDialog(){
+    public void showNewItemDialog() {
         Dialog<ButtonType> dialog = new Dialog<>();
         //now we want this dialog to be modul...meaning while the dialog is visible, the user's
         //won't be able to interact with any other part of the application's UI
@@ -104,11 +105,9 @@ public class Controller {
         //once we've done that, we gotta set the dialog's dialogpane to the dialogpane we defined in the fxml
 
 
-
         //Now, since the controls of the dialog can be accessed only via dialogController so we need a way to do so
         //therefore, we create an instance of FXMLLoader so as to access the instances of controls declared in the DialogController.java and so as to be able to call
         //a method define in the DialogController from this Controller(mainwindow's controller)
-
 
 
         dialog.setTitle("Add New Todo Item");  //this sets the title for the dialog window
@@ -118,12 +117,12 @@ public class Controller {
         FXMLLoader fxmlLoader = new FXMLLoader();   //new way
         fxmlLoader.setLocation(getClass().getResource("todoItemDialog.fxml")); //new way
 
-        try{ //we are adding a try block here since the load method can throw an IO exceoption
+        try { //we are adding a try block here since the load method can throw an IO exceoption
             dialog.getDialogPane().setContent(fxmlLoader.load()); //new way after creating the instance of FXMLLoader
 //            Parent root = FXMLLoader.load(getClass().getResource("todoItemDialog.fxml"));  //old way
 //            dialog.getDialogPane().setContent(root);
 
-        }catch(IOException e){
+        } catch (IOException e) {
             System.out.println("Couldn't load the dialog");
             e.printStackTrace();
             return;
@@ -137,14 +136,18 @@ public class Controller {
 
         Optional<ButtonType> result = dialog.showAndWait(); //simple a show() method disappears on its own whereas show and Wait() method waits for the user itput(via the buttons) and suspends the event handler till the user presses any button(blocking dialog)...the former one is non-blocking dialog
 
-        if(result.isPresent() && result.get() == ButtonType.OK){
+        if (result.isPresent() && result.get() == ButtonType.OK) {
             DialogController controller = fxmlLoader.getController(); //this is how we access the dialog's controller
             ToDoItem newItem = controller.processResults(); //since this also returns the new item added
-            todoListView.getItems().setAll(TodoData.getInstance().getToDoItems()); //this will reset the listView
+//            todoListView.getItems().setAll(TodoData.getInstance().getToDoItems()); //this will reset the listView  //we don't need this anymore since this will be handled by data binding
             todoListView.getSelectionModel().select(newItem);  //this selects the new item added
-            System.out.println("OK pressed");
-        }else{
-            System.out.println("Cancel pressed");
+
+
+//            System.out.println("OK pressed");
+//        }else{
+//            System.out.println("Cancel pressed");
+//        }
+
         }
 
     }
@@ -181,6 +184,8 @@ public class Controller {
     }
 
 }
+
+
 
 /**
  * now if we want to bold the text then we will have to put it outside the text area since text area only understands plain text so what we can do
