@@ -42,6 +42,11 @@ public class TodoData {
     }
 
 
+    public void addTodoItem(ToDoItem item){
+        toDoItems.add(item);
+    }
+
+
 
     //now we write the method to load the items from the file...we will write this using try finally syntax
     public void loadTodoItems() throws IOException{
@@ -108,6 +113,7 @@ public class TodoData {
 
 
     }
+
 
 
 }

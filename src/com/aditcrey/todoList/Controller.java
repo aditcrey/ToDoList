@@ -20,12 +20,16 @@ import java.util.Optional;
 
 public class Controller {
     private List<ToDoItem> toDoItems;
+
     @FXML
     private ListView<ToDoItem> todoListView;
+
     @FXML
     private TextArea itemDetailTextArea;
+
     @FXML
     private Label deadlineLabel;
+
     @FXML
     private BorderPane mainBorderPane;
 
@@ -48,7 +52,7 @@ public class Controller {
 //
 //
 //        TodoData.getInstance().setToDoItems(toDoItems); //this will create the file to be stored in for us //this will be later replaced by loading the items from the file instead of hardcoding
-            //the above line was run only once to store the hardcoded items in a file for once...for all later uses, the items will be loaded from the file itself and no hardcoding will be needed
+            //The above line was run only once to store the hardcoded items in a file for once...for all later uses, the items will be loaded from the file itself and no hardcoding will be needed
 
         /**
          * the following code creates a generic event handler which handles any time the value changes
@@ -99,9 +103,19 @@ public class Controller {
         //but that doesn't load the UI we defined its fxml and so we have to load the fxml here and we are going to do it the same way we do in the main class...
         //once we've done that, we gotta set the dialog's dialogpane to the dialogpane we defined in the fxml
 
+
+
+        //Now, since the controls of the dialog can be accessed only via dialogController so we need a way to do so
+        //therefore, we create an instance of FXMLLoader so as to access the instances of controls declared in the DialogController.java and so as to be able to call
+        //a method define in the DialogController from this Controller(mainwindow's controller)
+
+        FXMLLoader fxmlLoader = new FXMLLoader();   //new way
+        fxmlLoader.setLocation(getClass().getResource("todoItemDialog.fxml")); //new way
+
         try{ //we are adding a try block here since the load method can throw an IO exceoption
-            Parent root = FXMLLoader.load(getClass().getResource("todoItemDialog.fxml"));
-            dialog.getDialogPane().setContent(root);
+            dialog.getDialogPane().setContent(fxmlLoader.load()); //new way after creating the instance of FXMLLoader
+//            Parent root = FXMLLoader.load(getClass().getResource("todoItemDialog.fxml"));  //old way
+//            dialog.getDialogPane().setContent(root);
 
         }catch(IOException e){
             System.out.println("Couldn't load the dialog");
@@ -118,6 +132,9 @@ public class Controller {
         Optional<ButtonType> result = dialog.showAndWait(); //simple a show() method disappears on its own whereas show and Wait() method waits for the user itput(via the buttons) and suspends the event handler till the user presses any button(blocking dialog)...the former one is non-blocking dialog
 
         if(result.isPresent() && result.get() == ButtonType.OK){
+            DialogController controller = fxmlLoader.getController(); //this is how we access the dialog's controller
+            controller.processResults();
+            todoListView.getItems().setAll(TodoData.getInstance().getToDoItems()); //this will reset the listView
             System.out.println("OK pressed");
         }else{
             System.out.println("Cancel pressed");
