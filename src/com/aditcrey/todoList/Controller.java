@@ -109,6 +109,11 @@ public class Controller {
         //therefore, we create an instance of FXMLLoader so as to access the instances of controls declared in the DialogController.java and so as to be able to call
         //a method define in the DialogController from this Controller(mainwindow's controller)
 
+
+
+        dialog.setTitle("Add New Todo Item");  //this sets the title for the dialog window
+
+
         FXMLLoader fxmlLoader = new FXMLLoader();   //new way
         fxmlLoader.setLocation(getClass().getResource("todoItemDialog.fxml")); //new way
 
