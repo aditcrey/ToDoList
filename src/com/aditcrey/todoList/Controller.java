@@ -8,7 +8,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
+import javafx.util.Callback;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -85,6 +88,31 @@ public class Controller {
         //now just making the text area display the first item in the listview(otherwise the text area will remain blank initially)
         todoListView.getSelectionModel().selectFirst();
 
+
+
+        //now we'll use cell factory //below code is for that
+        todoListView.setCellFactory(new Callback<ListView<ToDoItem>, ListCell<ToDoItem>>() {
+            @Override
+            public ListCell<ToDoItem> call(ListView<ToDoItem> param) {
+                ListCell<ToDoItem> cell = new ListCell<ToDoItem>(){    //the ListCell has parent as Labeled class and so has setText and other methods of labeled class(the Label class also descends from this Labeled class)
+                    @Override
+                    protected void updateItem(ToDoItem item, boolean empty) {   //this shows how the item will look like in the listView
+                        super.updateItem(item, empty);    //we won't remove this since we want most of the default behaviour such as alternate background color
+                        if(empty){ //if there is no text
+                            setText(null);
+                        }else{
+                            setText(item.getShortDescription());    //since we are setting the text of ListView item as item.getShortDescription(), we no longer need to override toString() method in ToDoItem class
+                            if(item.getDeadline().equals(LocalDate.now())){
+                                setTextFill(Color.RED);
+
+                            }
+                        }
+                    }
+                };
+
+                return cell;
+            }
+        });
 
     }
 
@@ -234,6 +262,6 @@ public class Controller {
  *  sets the text to whatever items toString method returns...also, the background color of the cell alternates between white and
  *  very light gray
  *
- *  For using cell factory, we need to define a method  the the ListView will call each time it wants to paint one of its cells
+ *  For using cell factory, we need to define a method the ListView will call each time it wants to paint one of its cells
  *
  */

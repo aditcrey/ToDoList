@@ -43,8 +43,8 @@ public class ToDoItem {
     }
 
 
-    @Override
-    public String toString() {
-        return shortDescription;
-    }
+//    @Override                     //no longer needed since we are using cellFactory to set text to the list view
+//    public String toString() {
+//        return shortDescription;
+//    }
 }
