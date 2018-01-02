@@ -102,11 +102,13 @@ public class Controller {
                             setText(null);
                         }else{
                             setText(item.getShortDescription());    //since we are setting the text of ListView item as item.getShortDescription(), we no longer need to override toString() method in ToDoItem class
-                            if(item.getDeadline().equals(LocalDate.now())){
+                            if(item.getDeadline().isBefore(LocalDate.now())){
                                 setTextFill(Color.RED);
 
                             }else if(item.getDeadline().equals(LocalDate.now().plusDays(1))){
                                 setTextFill(Color.BLUE);
+                            }else if(item.getDeadline().equals(LocalDate.now())){
+                                setTextFill(Color.GREEN);
                             }
                         }
                     }
