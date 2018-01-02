@@ -4,6 +4,8 @@ import com.aditcrey.todoList.datamodel.ToDoItem;
 import com.aditcrey.todoList.datamodel.TodoData;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -36,8 +38,23 @@ public class Controller {
     @FXML
     private BorderPane mainBorderPane;
 
+    @FXML
+    private ContextMenu listContextMenu;
+
 
     public void initialize(){
+
+        listContextMenu = new ContextMenu();  //initialising the context menu
+        MenuItem deleteMenuItem = new MenuItem("Delete");
+        deleteMenuItem.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                ToDoItem item = todoListView.getSelectionModel().getSelectedItem(); //gettting the item that's currently selected in the list
+                deleteItem(item);
+            }
+        });
+
+        listContextMenu.getItems().addAll(deleteMenuItem); //add the delete option to the context menu
 
 
 //        ToDoItem item1 = new ToDoItem("Mail birthdaycard", "Buy a birthday card for John", LocalDate.of(2016, Month.APRIL, 25));
@@ -113,6 +130,16 @@ public class Controller {
                         }
                     }
                 };
+
+                cell.emptyProperty().addListener(  //lambda expression for setting a listenenr to a cell in the listView for contextMeny
+                        (obs, wasEmpty, isNowEmpty) -> {
+                            if (isNowEmpty){
+                                cell.setContextMenu(null);  //turns off the context meny if the cell is empty
+                            }else{
+                                cell.setContextMenu(listContextMenu);
+                            }
+                        }
+                );
 
                 return cell;
             }
@@ -213,6 +240,25 @@ public class Controller {
 
 //        itemDetailTextArea.setText(item.getDetails()); //earlier without string builder
 
+
+    }
+
+
+    public void deleteItem(ToDoItem item){
+        //now there are certain canned dialogs which are prebuilt in javafx...one such is alert dialog ...we can use this to ask the user for confirmation to delete the item
+        //as it may happen that the user has selected the wrong item by mistake
+        //now, when we create an alert, we pass in the type of dialog what we want to create. The choices we have: confirmation, error, information, warning and none
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Delete Todo item");
+        alert.setHeaderText("Delete item: " + item.getShortDescription());
+        alert.setContentText("Are you sure? Press OK to confirm, or Cancel to Back Out.");
+
+        //we don't need to provide buttons since alert will do that by itself
+        Optional<ButtonType> result = alert.showAndWait();
+
+        if(result.isPresent() && result.get()==ButtonType.OK){
+            TodoData.getInstance().deleteTodoItem(item);
+        }
 
     }
 

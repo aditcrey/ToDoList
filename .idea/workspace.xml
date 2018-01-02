@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="observable list potha">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ToDoList/com/aditcrey/todoList/Controller$2$1.class" afterPath="$PROJECT_DIR$/out/production/ToDoList/com/aditcrey/todoList/Controller$2$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ToDoList/com/aditcrey/todoList/Controller$2.class" afterPath="$PROJECT_DIR$/out/production/ToDoList/com/aditcrey/todoList/Controller$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ToDoList/com/aditcrey/todoList/Controller.class" afterPath="$PROJECT_DIR$/out/production/ToDoList/com/aditcrey/todoList/Controller.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ToDoList/com/aditcrey/todoList/Controller$2$1.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/aditcrey/todoList/Controller.java" afterPath="$PROJECT_DIR$/src/com/aditcrey/todoList/Controller.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/aditcrey/todoList/datamodel/TodoData.java" afterPath="$PROJECT_DIR$/src/com/aditcrey/todoList/datamodel/TodoData.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -65,7 +63,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/aditcrey/todoList/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="374">
@@ -77,15 +75,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/aditcrey/todoList/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="123" column="37" lean-forward="true" selection-start-line="123" selection-start-column="37" selection-end-line="123" selection-end-column="37" />
+            <state relative-caret-position="2244">
+              <caret line="138" column="67" lean-forward="false" selection-start-line="138" selection-start-column="67" selection-end-line="138" selection-end-column="67" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#4914#6288#0" expanded="true" />
-                <element signature="e#6287#6288#0" expanded="true" />
+                <element signature="e#5619#6993#0" expanded="true" />
+                <element signature="e#6992#6993#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -94,8 +92,8 @@
       <file leaf-file-name="TodoData.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/aditcrey/todoList/datamodel/TodoData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="42" column="103" lean-forward="false" selection-start-line="42" selection-start-column="103" selection-end-line="42" selection-end-column="103" />
+            <state relative-caret-position="745">
+              <caret line="139" column="31" lean-forward="true" selection-start-line="139" selection-start-column="31" selection-end-line="139" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -178,12 +176,12 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/com/aditcrey/todoList/DialogController.java" />
-        <option value="$PROJECT_DIR$/src/com/aditcrey/todoList/datamodel/TodoData.java" />
         <option value="$PROJECT_DIR$/src/com/aditcrey/todoList/todoItemDialog.fxml" />
         <option value="$PROJECT_DIR$/src/com/aditcrey/todoList/mainwindow.fxml" />
         <option value="$PROJECT_DIR$/src/com/aditcrey/todoList/datamodel/ToDoItem.java" />
-        <option value="$PROJECT_DIR$/src/com/aditcrey/todoList/Controller.java" />
         <option value="$PROJECT_DIR$/src/com/aditcrey/todoList/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/aditcrey/todoList/datamodel/TodoData.java" />
+        <option value="$PROJECT_DIR$/src/com/aditcrey/todoList/Controller.java" />
       </list>
     </option>
   </component>
@@ -682,8 +680,8 @@
           <caret line="101" column="28" lean-forward="false" selection-start-line="101" selection-start-column="28" selection-end-line="101" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4914#6288#0" expanded="true" />
-            <element signature="e#6287#6288#0" expanded="true" />
+            <element signature="e#5619#6993#0" expanded="true" />
+            <element signature="e#6992#6993#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -754,8 +752,8 @@
           <caret line="114" column="174" lean-forward="false" selection-start-line="114" selection-start-column="174" selection-end-line="114" selection-end-column="174" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4914#6288#0" expanded="true" />
-            <element signature="e#6287#6288#0" expanded="true" />
+            <element signature="e#5619#6993#0" expanded="true" />
+            <element signature="e#6992#6993#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -776,8 +774,8 @@
           <caret line="69" column="83" lean-forward="true" selection-start-line="69" selection-start-column="83" selection-end-line="69" selection-end-column="83" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4914#6288#0" expanded="true" />
-            <element signature="e#6287#6288#0" expanded="true" />
+            <element signature="e#5619#6993#0" expanded="true" />
+            <element signature="e#6992#6993#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -848,8 +846,8 @@
           <caret line="52" column="73" lean-forward="false" selection-start-line="52" selection-start-column="73" selection-end-line="52" selection-end-column="73" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4914#6288#0" expanded="true" />
-            <element signature="e#6287#6288#0" expanded="true" />
+            <element signature="e#5619#6993#0" expanded="true" />
+            <element signature="e#6992#6993#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -889,8 +887,8 @@
           <caret line="40" column="5" lean-forward="false" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4914#6288#0" expanded="true" />
-            <element signature="e#6287#6288#0" expanded="true" />
+            <element signature="e#5619#6993#0" expanded="true" />
+            <element signature="e#6992#6993#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -941,8 +939,8 @@
           <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4914#6288#0" expanded="true" />
-            <element signature="e#6287#6288#0" expanded="true" />
+            <element signature="e#5619#6993#0" expanded="true" />
+            <element signature="e#6992#6993#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1038,16 +1036,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/aditcrey/todoList/datamodel/TodoData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="42" column="103" lean-forward="false" selection-start-line="42" selection-start-column="103" selection-end-line="42" selection-end-column="103" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/aditcrey/todoList/DialogController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="151">
@@ -1069,24 +1057,34 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/aditcrey/todoList/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="123" column="37" lean-forward="true" selection-start-line="123" selection-start-column="37" selection-end-line="123" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4914#6288#0" expanded="true" />
-            <element signature="e#6287#6288#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/aditcrey/todoList/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="17" column="52" lean-forward="false" selection-start-line="17" selection-start-column="52" selection-end-line="17" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/aditcrey/todoList/datamodel/TodoData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="745">
+          <caret line="139" column="31" lean-forward="true" selection-start-line="139" selection-start-column="31" selection-end-line="139" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/aditcrey/todoList/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2244">
+          <caret line="138" column="67" lean-forward="false" selection-start-line="138" selection-start-column="67" selection-end-line="138" selection-end-column="67" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5619#6993#0" expanded="true" />
+            <element signature="e#6992#6993#0" expanded="true" />
           </folding>
         </state>
       </provider>
