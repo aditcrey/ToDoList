@@ -30,14 +30,14 @@
 
             <ToolBar>
                 <HBox>
-                    <Button text="New Item" onAction="#showNewItemDialog">
+                    <Button text="New Item" onAction="#showNewItemDialog" tooltip="Add a new todo item">
                         <graphic>
                             <ImageView>
                                     <Image url="@/toolbarButtonGraphics/general/New24.gif"/>
                             </ImageView>
                         </graphic>
                     </Button>
-                    
+
                 </HBox>
             </ToolBar>
 
