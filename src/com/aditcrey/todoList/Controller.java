@@ -343,4 +343,16 @@ public class Controller {
  *
  *      To associate keyListener to the listView, what we need to do is set its onKeyPress property in the fxml
  *
+ *
+ *
+ *
+ *
+ * Note what whatever we have learnt for the listView can be applied to tableview, treeView, treetableView etc.
+ *
+ *
+ *
+ * Adding a toolBar:
+ *      Now, since we want both, the menu bar and the tool bar in the top of the borderpane, we are going to put both of
+ *      them in a VBox
+ *
  */
