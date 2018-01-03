@@ -4,6 +4,7 @@ import com.aditcrey.todoList.datamodel.ToDoItem;
 import com.aditcrey.todoList.datamodel.TodoData;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -22,6 +23,7 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
@@ -97,9 +99,20 @@ public class Controller {
         });
 
 
+        //now we will wrap the list into sortedList and also pass a comparator that helps sorting according to the deadline of the ToDoItem
+        SortedList<ToDoItem> sortedList = new SortedList<ToDoItem>(TodoData.getInstance().getToDoItems(),
+                new Comparator<ToDoItem>() {
+                    @Override
+                    public int compare(ToDoItem o1, ToDoItem o2) {
+                        return o1.getDeadline().compareTo(o2.getDeadline()); //this uses the compareTo method of LocalDate class
+                    }
+                });
+
+
 //        todoListView.getItems().setAll(toDoItems);
 //        todoListView.getItems().setAll(TodoData.getInstance().getToDoItems()); //this will read from the file //before data binding
-        todoListView.setItems(TodoData.getInstance().getToDoItems()); //after making the list-> observable list (in the TodoData.java)
+//        todoListView.setItems(TodoData.getInstance().getToDoItems()); //after making the list-> observable list (in the TodoData.java) //before sorting
+        todoListView.setItems(sortedList);
         //now we can set the listview to single select or multi select i.e. the user is able to select only a single item or multiple items from the listView...here
         //we'll do the single select as follows
         todoListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
