@@ -31,7 +31,7 @@
 
             <ToolBar>
                 <HBox>
-                    <Button text="New Item" onAction="#showNewItemDialog">
+                    <Button onAction="#showNewItemDialog">
                         <tooltip>  <!--we are doing this since tooltip expects a class instance just like graphic property expects an instance of Imageview....in other words, properties which expect class instance instead of a string are written as shown here-->
                             <Tooltip text="Add a new todo item"/>
                         </tooltip>
