@@ -314,4 +314,17 @@ public class Controller {
  *
  *  For using cell factory, we need to define a method the ListView will call each time it wants to paint one of its cells
  *
+ *
+ *
+ *  Adding a key listener:
+ *      We will add a key listener for deleting items in the listView so that when the user presses the delete button
+ *      the item is deleted when the listView  itself has got focus...Note: typically a control is given focus when
+ *      the user clicks on it or clicks within it
+ *
+ *      When the user presses the key, a key event is raised and a key event handler associated will be called...
+ *      The focus determines which control's event handlers are called when an event is raised(since a single key can
+ *      be associated with multiple controls)
+ *
+ *      To associate keyListener to the listView, what we need to do is set its onKeyPress property in the fxml
+ *
  */
