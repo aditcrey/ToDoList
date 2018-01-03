@@ -50,6 +50,9 @@
     </top>
     <left>
         <ListView fx:id="todoListView" onKeyPressed="#handleKeyPressed" >
+            <tooltip>
+                <Tooltip text="Tasks"/>
+            </tooltip>
 
         </ListView>
     </left>
