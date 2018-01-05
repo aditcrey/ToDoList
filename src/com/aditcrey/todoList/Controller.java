@@ -53,6 +53,10 @@ public class Controller {
     @FXML
     private FilteredList<ToDoItem> filteredList;
 
+    private Predicate<ToDoItem> wantAllItems;
+
+    private Predicate<ToDoItem> wantTodaysItems;
+
 
     public void initialize(){
 
@@ -106,18 +110,44 @@ public class Controller {
             }
         });
 
-        filteredList=new FilteredList<ToDoItem>(TodoData.getInstance().getToDoItems(),
-                new Predicate<ToDoItem>() {  //an anonymous class of Predicate interface  //these days predicates are written using lambda expressions but we'll do it normally since we haven't yet studied lambda expressions
-                    @Override
-                    public boolean test(ToDoItem toDoItem) {  //test method returns true if the item passes the filter
-                        return true;
-                    }
-                });
+        wantAllItems = new Predicate<ToDoItem>() {
+            @Override
+            public boolean test(ToDoItem toDoItem) {
+                return true;
+            }
+        };
+
+        wantTodaysItems = new Predicate<ToDoItem>() {
+            @Override
+            public boolean test(ToDoItem toDoItem) {
+                return (toDoItem.getDeadline().equals(LocalDate.now()));
+            }
+        };
+
+
+        //new way of using predicate //we are using the predicates as defined above instead of creating it right here(as done earlier)
+        filteredList = new FilteredList<ToDoItem>(TodoData.getInstance().getToDoItems(),
+                wantAllItems);
+
+
+        //older way of using predicate
+//        filteredList=new FilteredList<ToDoItem>(TodoData.getInstance().getToDoItems(),
+//                new Predicate<ToDoItem>() {  //an anonymous class of Predicate interface  //these days predicates are written using lambda expressions but we'll do it normally since we haven't yet studied lambda expressions
+//                    @Override
+//                    public boolean test(ToDoItem toDoItem) {  //test method returns true if the item passes the filter
+//                        return true;
+//                    }
+//                });
 
 
         //now we will wrap the list into sortedList and also pass a comparator that helps sorting according to the deadline of the ToDoItem
 
+
+
+
         //AFTER ADDING FILTERED LIST
+
+
         SortedList<ToDoItem> sortedList = new SortedList<ToDoItem>(filteredList,
                 new Comparator<ToDoItem>() {
                     @Override
@@ -320,20 +350,10 @@ public class Controller {
 
     public void handleFilterButton(){
         if(filterToggleButton.isSelected()){
-            filteredList.setPredicate(new Predicate<ToDoItem>() {
-                @Override
-                public boolean test(ToDoItem toDoItem) {
-                    return (toDoItem.getDeadline().equals(LocalDate.now()));  //returns true if the deadline is of today
-                }
-            });
+            filteredList.setPredicate(wantTodaysItems);
 
         }else{
-            filteredList.setPredicate(new Predicate<ToDoItem>() {
-                @Override
-                public boolean test(ToDoItem toDoItem) {
-                    return true;
-                }
-            });
+            filteredList.setPredicate(wantAllItems);
 
         }
     }
