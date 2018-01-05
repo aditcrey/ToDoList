@@ -2,6 +2,7 @@ package com.aditcrey.todoList;
 
 import com.aditcrey.todoList.datamodel.ToDoItem;
 import com.aditcrey.todoList.datamodel.TodoData;
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.transformation.FilteredList;
@@ -348,6 +349,7 @@ public class Controller {
 
     }
 
+    @FXML
     public void handleFilterButton(){
         ToDoItem selectedItem = todoListView.getSelectionModel().getSelectedItem();
 
@@ -372,6 +374,11 @@ public class Controller {
 
 
         }
+    }
+
+    @FXML
+    public void handleExit(){
+        Platform.exit();
     }
 
 }
