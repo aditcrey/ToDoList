@@ -349,11 +349,27 @@ public class Controller {
     }
 
     public void handleFilterButton(){
+        ToDoItem selectedItem = todoListView.getSelectionModel().getSelectedItem();
+
+
         if(filterToggleButton.isSelected()){
             filteredList.setPredicate(wantTodaysItems);
+            if(filteredList.isEmpty()){
+                itemDetailTextArea.clear();
+                deadlineLabel.setText("");
+            }else if(filteredList.contains(selectedItem)){ //the today's item filtered list contains the already selected item
+                todoListView.getSelectionModel().select(selectedItem);
+
+            }else{ //else select the first item in the filtered list
+                todoListView.getSelectionModel().selectFirst();
+            }
+
 
         }else{
+
             filteredList.setPredicate(wantAllItems);
+            todoListView.getSelectionModel().select(selectedItem);
+
 
         }
     }
