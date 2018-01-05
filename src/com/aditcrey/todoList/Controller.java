@@ -4,6 +4,7 @@ import com.aditcrey.todoList.datamodel.ToDoItem;
 import com.aditcrey.todoList.datamodel.TodoData;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -26,6 +27,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Predicate;
 
 public class Controller {
     private List<ToDoItem> toDoItems;
@@ -44,6 +46,12 @@ public class Controller {
 
     @FXML
     private ContextMenu listContextMenu;
+
+    @FXML
+    private ToggleButton filterToggleButton;
+
+    @FXML
+    private FilteredList<ToDoItem> filteredList;
 
 
     public void initialize(){
@@ -98,15 +106,34 @@ public class Controller {
             }
         });
 
+        filteredList=new FilteredList<ToDoItem>(TodoData.getInstance().getToDoItems(),
+                new Predicate<ToDoItem>() {  //an anonymous class of Predicate interface  //these days predicates are written using lambda expressions but we'll do it normally since we haven't yet studied lambda expressions
+                    @Override
+                    public boolean test(ToDoItem toDoItem) {  //test method returns true if the item passes the filter
+                        return true;
+                    }
+                });
+
 
         //now we will wrap the list into sortedList and also pass a comparator that helps sorting according to the deadline of the ToDoItem
-        SortedList<ToDoItem> sortedList = new SortedList<ToDoItem>(TodoData.getInstance().getToDoItems(),
+
+        //AFTER ADDING FILTERED LIST
+        SortedList<ToDoItem> sortedList = new SortedList<ToDoItem>(filteredList,
                 new Comparator<ToDoItem>() {
                     @Override
                     public int compare(ToDoItem o1, ToDoItem o2) {
-                        return o1.getDeadline().compareTo(o2.getDeadline()); //this uses the compareTo method of LocalDate class
+                        return o1.getDeadline().compareTo(o2.getDeadline());
                     }
                 });
+
+        //BEFORE ADDING FILTERED LIST
+//        SortedList<ToDoItem> sortedList = new SortedList<ToDoItem>(TodoData.getInstance().getToDoItems(),
+//                new Comparator<ToDoItem>() {
+//                    @Override
+//                    public int compare(ToDoItem o1, ToDoItem o2) {
+//                        return o1.getDeadline().compareTo(o2.getDeadline()); //this uses the compareTo method of LocalDate class
+//                    }
+//                });
 
 
 //        todoListView.getItems().setAll(toDoItems);
@@ -289,6 +316,26 @@ public class Controller {
             TodoData.getInstance().deleteTodoItem(item);
         }
 
+    }
+
+    public void handleFilterButton(){
+        if(filterToggleButton.isSelected()){
+            filteredList.setPredicate(new Predicate<ToDoItem>() {
+                @Override
+                public boolean test(ToDoItem toDoItem) {
+                    return (toDoItem.getDeadline().equals(LocalDate.now()));  //returns true if the deadline is of today
+                }
+            });
+
+        }else{
+            filteredList.setPredicate(new Predicate<ToDoItem>() {
+                @Override
+                public boolean test(ToDoItem toDoItem) {
+                    return true;
+                }
+            });
+
+        }
     }
 
 }
